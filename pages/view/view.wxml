@@ -1,0 +1,24 @@
+<!--view.wxml-->
+<import src="../../wxParse/wxParse.wxml"/> 
+
+<view class="container">
+  <view class='content'>
+    <view class='post'>
+      <view class='header'>
+        <view class='title'>{{contents.title}}</view>
+        <view class='meta'>
+          <text class='time'>{{contents.addTime}}</text>
+          <text class='user'>作者（{{contents.user}}）</text>
+          <text class='views'>阅读（{{contents.views}}）</text>
+          <text class='comments'>评论（{{contents.comments.length}}）</text>
+        </view>
+        <view class='body'>
+          <view class='des'>{{contents.description}}</view>
+          <view class='con'>
+                <template is="wxParse" data="{{wxParseData:article.nodes}}"/>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

@@ -1,0 +1,43 @@
+.container{
+  display: block;
+}
+.content{
+  background: #f4f4f4;
+  padding: 15px;
+}
+.content .post{
+  margin-bottom: 15px;
+  padding: 15px;
+  background: #fff;
+  box-sizing: border-box;
+  width: 100%;
+  font-size: 30rpx;
+  color: #333;
+}
+.content .post .header{
+  text-align: center;
+}
+.content .post .header .title{
+  font-weight: bold;
+  margin-top: 20px;
+}
+.content .post .header .meta{
+  margin-top: 10px;
+}
+.content .body{
+  margin-top: 20px;
+  padding-top: 20px;
+  border-top: 1px solid #cecece;
+  text-align: left;
+  line-height: 50rpx;
+}
+.content .body .wxParse-p{
+  margin-top: 10px;
+}
+.wxParse-code, .wxParse-wxxxcode-style{
+  display: block;
+  margin-top: 10px;
+}
+.wxParse-blockquote {
+  font-size: 25rpx;
+}

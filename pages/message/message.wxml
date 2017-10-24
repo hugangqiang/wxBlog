@@ -1,0 +1,64 @@
+<!--message.wxml-->
+
+<view class="container">
+  <view class='content'>
+    <view class='post header'>
+      <text class='title'>联系</text>
+      <text>如有某种合作意向，可通过以下任何一方式联系到我</text>
+      <text>(1)邮箱：hi@hugangqiang.com</text>
+      <text>(2)github：github.com/hugangqiang</text>
+      <text>(3)QQ:1463035198</text>
+    </view>
+    <view class='post'>
+      <view class='form'>
+        <view class='title'>
+          <view class='box'>
+            <image src='https://hugangqiang.com/public/images/userImg/none.png'></image>
+          </view>
+          <view class='box'>
+            <text>欢迎新朋友的到来！</text>
+            <view>
+              <image class='icon' src='../../icon/right.png'></image>
+              <text>已经有条{{message.length}}留言抢在你前面了~</text>
+            </view>
+          </view>
+        </view>
+        <form  bindsubmit="formSubmit" bindreset="formReset">
+          <view class='section'>
+            <input name='username' placeholder="请输入用户名" type="text" />
+          </view>
+          <view class='section'>
+            <input name='useremail' placeholder="请输入邮箱" type="text" />
+          </view>
+          <view class="section">
+            <textarea name="content" />
+          </view>
+          <text class="warning">{{alert}}</text>
+          <view class="btn-area">
+            <button formType="submit">留言</button>
+          </view>
+        </form>
+      </view>
+    </view>
+    <view class='post'>
+      <view class='message'>
+        <view class="comment" wx:for-items="{{messages}}" wx:key="messages">
+          <view class='title'>
+            <view class='box'>
+              <image src='{{item.userImg}}'></image>
+            </view>
+            <view class='box'>
+              <text>{{item.user}}</text>
+              <view class='comment-content'>
+                {{item.message}}
+              </view>
+              <view class='comment-time'>
+                <text>{{item.addTime}}</text>
+              </view>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>
