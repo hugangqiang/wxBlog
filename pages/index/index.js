@@ -38,7 +38,7 @@ Page({
     }
     
     wx.request({
-      url: 'https://hugangqiang.com/api/content',
+      url: 'https://www.hugangqiang.com/api/content',
       method: 'GET',
       success: res => {
         this.setData({

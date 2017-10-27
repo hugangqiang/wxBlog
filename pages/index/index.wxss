@@ -1,8 +1,6 @@
 /**index.wxss**/
 .content{
   background: #f4f4f4;
-  display: flex;
-  flex-direction: column;
   padding: 15px;
 }
 .content .post{

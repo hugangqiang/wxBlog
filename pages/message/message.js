@@ -13,12 +13,15 @@ function date(str) {
 }
 Page({
   data: {
+    username: '',
+    useremail: '',
+    message: '',
     messages: {},
     alert: ''
   },
   onLoad: function (){
     wx.request({
-      url: 'https://hugangqiang.com/api/message',
+      url: 'https://www.hugangqiang.com/api/message',
       method: 'GET',
       success: res => {
         let messages = res.data.data.reverse();
@@ -29,7 +32,7 @@ Page({
           messages[i].addTime = date(time);
           let str = messages[i].userImg;
           if ( str.substr(0, 4).toLowerCase() != 'http' ){
-            messages[i].userImg = "https://hugangqiang.com" + messages[i].userImg;
+            messages[i].userImg = "https://www.hugangqiang.com" + messages[i].userImg;
           }
         }
         this.setData({
@@ -39,13 +42,25 @@ Page({
     })
     
   },
-  formReset: function(){
-    
+  bindKeyName: function (e) {
+    this.setData({
+      username: e.detail.value
+    })
   },
-  formSubmit: function(e) {
-    let userName = e.detail.value.username;
-    let userEmail = e.detail.value.useremail;
-    let content = e.detail.value.content;
+  bindKeyEmail: function (e) {
+    this.setData({
+      useremail: e.detail.value
+    })
+  },
+  bindKeyMessage: function (e) {
+    this.setData({
+      message: e.detail.value
+    })
+  },
+  tapSubmit: function(e) {
+    let userName = this.data.username;
+    let userEmail = this.data.useremail;
+    let content = this.data.message;
     if (typeof (userName) != "undefined") {
       if (userName === '') {
         this.setData({
@@ -78,19 +93,26 @@ Page({
       alert: ''
     })
     wx.request({
-      url: 'https://hugangqiang.com/api/message',
+      url: 'https://www.hugangqiang.com/api/message',
       method: 'POST',
       data: {
         userName: userName,
         userEmail: userEmail,
         content: content,
-        ip: {}
+        ip: {
+          "cname": "小程序留言未开放地址",
+          "cid": "000000",
+          "cip": "0.0.0.0"
+        }
       },
       success: res => {
-        this.formReset();
-        console.log(e.detail)
+        this.setData({
+          username: '',
+          useremail: '',
+          message: ''
+        })
         wx.request({
-          url: 'https://hugangqiang.com/api/message',
+          url: 'https://www.hugangqiang.com/api/message',
           method: 'GET',
           success: res => {
             let messages = res.data.data.reverse();
@@ -101,7 +123,7 @@ Page({
               messages[i].addTime = date(time);
               let str = messages[i].userImg;
               if (str.substr(0, 4).toLowerCase() != 'http') {
-                messages[i].userImg = "https://hugangqiang.com" + messages[i].userImg;
+                messages[i].userImg = "https://www.hugangqiang.com" + messages[i].userImg;
               }
             }
             this.setData({

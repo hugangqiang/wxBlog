@@ -51,6 +51,8 @@
   line-height: 40px;
   margin-top: 15px;
   padding: 0 5px;
+  width: 100%;
+  box-sizing: border-box;
 }
 .form .section textarea{
   height: 120px;

@@ -13,29 +13,29 @@
       <view class='form'>
         <view class='title'>
           <view class='box'>
-            <image src='https://hugangqiang.com/public/images/userImg/none.png'></image>
+            <image src='https://www.hugangqiang.com/public/images/userImg/none.png'></image>
           </view>
           <view class='box'>
             <text>欢迎新朋友的到来！</text>
             <view>
               <image class='icon' src='../../icon/right.png'></image>
-              <text>已经有条{{message.length}}留言抢在你前面了~</text>
+              <text>已经有条{{messages.length}}留言抢在你前面了~</text>
             </view>
           </view>
         </view>
         <form  bindsubmit="formSubmit" bindreset="formReset">
           <view class='section'>
-            <input name='username' placeholder="请输入用户名" type="text" />
+            <input name='username' bindinput="bindKeyName" value="{{username}}" placeholder="请输入用户名" type="text" />
           </view>
           <view class='section'>
-            <input name='useremail' placeholder="请输入邮箱" type="text" />
+            <input name='useremail' bindinput="bindKeyEmail" value="{{useremail}}" placeholder="请输入邮箱" type="text" />
           </view>
           <view class="section">
-            <textarea name="content" />
+            <textarea name="content" value='{{message}}' bindinput="bindKeyMessage" />
           </view>
           <text class="warning">{{alert}}</text>
           <view class="btn-area">
-            <button formType="submit">留言</button>
+            <button bindtap="tapSubmit">留言</button>
           </view>
         </form>
       </view>

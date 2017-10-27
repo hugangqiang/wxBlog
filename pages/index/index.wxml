@@ -4,13 +4,13 @@
     <view class='post' wx:for-items="{{contents}}" wx:key="contents">
       <navigator url="/pages/view/view?id={{item._id}}" hover-class="navigator-hover">
         <view wx:if="{{item.titleImg}}" class='title-img'>
-          <image src='https://hugangqiang.com{{item.titleImg}}'></image>
+          <image src='https://www.hugangqiang.com{{item.titleImg}}'></image>
         </view>
         <view class='title'>
           <text>{{item.title}}</text>
         </view>
         <view class='info'>
-          <image class='user-img' src='https://hugangqiang.com{{item.userImg}}'></image>
+          <image class='user-img' src='https://www.hugangqiang.com{{item.userImg}}'></image>
           <text class='user'>{{item.user}}</text>
           <image class='icon' src='../../icon/view.png'></image>
           <text class='views'>
